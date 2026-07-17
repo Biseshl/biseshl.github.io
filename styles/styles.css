@@ -309,19 +309,19 @@ section {
   width: 50%;
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .html {
-  width: 90%; /* Active Directory */
+  width: 90%; /* Active Directory and Microsoft 365 */
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .css {
-  width: 95%; /* Hardware Troubleshooting */
+  width: 90%; /* Endpoint deployment and asset management */
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .js {
-  width: 85%; /* Service Desk/Jira */
+  width: 85%; /* ServiceNow and ITIL */
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .java {
   width: 75%;
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .python {
-  width: 80%; /* Networking */
+  width: 80%; /* Networking and retail/POS support */
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .figma {
   width: 80%;
