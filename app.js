@@ -96,24 +96,31 @@
         });
     };
 
-    setActiveLink('home');
+    const trackedSections = [...document.querySelectorAll('main section[id]')];
+    let activeSectionFrame = 0;
 
-    if ('IntersectionObserver' in window) {
-        const sectionObserver = new IntersectionObserver((entries) => {
-            const visible = entries
-                .filter((entry) => entry.isIntersecting)
-                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const updateActiveSection = () => {
+        const marker = window.innerHeight * 0.3;
+        let currentSection = trackedSections[0];
 
-            if (visible[0]?.target.id) setActiveLink(visible[0].target.id);
-        }, {
-            rootMargin: '-24% 0px -62% 0px',
-            threshold: [0, 0.1, 0.25]
+        trackedSections.forEach((section) => {
+            if (section.getBoundingClientRect().top <= marker) {
+                currentSection = section;
+            }
         });
 
-        document.querySelectorAll('main section[id]').forEach((section) => {
-            sectionObserver.observe(section);
-        });
-    }
+        if (currentSection?.id) setActiveLink(currentSection.id);
+        activeSectionFrame = 0;
+    };
+
+    const queueActiveSectionUpdate = () => {
+        if (activeSectionFrame) return;
+        activeSectionFrame = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', queueActiveSectionUpdate, { passive: true });
+    window.addEventListener('resize', queueActiveSectionUpdate, { passive: true });
 
     const revealElements = [...document.querySelectorAll('.reveal')];
 
