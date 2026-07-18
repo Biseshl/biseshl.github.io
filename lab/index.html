@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Practise realistic retail service desk triage, troubleshooting, communication, documentation, and escalation decisions in a fictional training environment.">
+    <meta name="author" content="Bisesh Lamichhane">
+    <meta name="theme-color" content="#f4f8fa">
+    <meta name="color-scheme" content="dark light">
+
+    <title>Retail Service Desk Lab | Bisesh Lamichhane</title>
+    <link rel="canonical" href="https://www.biseshl.com.np/lab/">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/lab/styles.css?v=20260718">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Retail Service Desk Lab">
+    <meta property="og:description" content="A hands-on training simulator for new retail service desk analysts.">
+    <meta property="og:url" content="https://www.biseshl.com.np/lab/">
+    <meta property="og:image" content="https://www.biseshl.com.np/img/me.jpg">
+
+    <script>
+        document.documentElement.classList.add('js');
+        try {
+            const savedTheme = localStorage.getItem('theme');
+            const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.dataset.theme = savedTheme || preferredTheme;
+        } catch (error) {
+            document.documentElement.dataset.theme = 'light';
+        }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Retail Service Desk Lab",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "url": "https://www.biseshl.com.np/lab/",
+        "description": "A fictional retail service desk simulator for practising ticket triage, troubleshooting, communication, documentation, and escalation.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Bisesh Lamichhane",
+            "url": "https://www.biseshl.com.np/"
+        }
+    }
+    </script>
+    <script src="/lab/app.js?v=20260718" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to simulator</a>
+
+    <header class="lab-header" data-header>
+        <div class="shell lab-header__inner">
+            <a class="brand" href="/" aria-label="Bisesh Lamichhane portfolio home">
+                <span class="brand__mark" aria-hidden="true">BL</span>
+                <span class="brand__text">
+                    <strong>Retail Service Desk Lab</strong>
+                    <small>by Bisesh Lamichhane</small>
+                </span>
+            </a>
+
+            <div class="lab-header__actions">
+                <span class="save-state" title="Progress is stored only in this browser">
+                    <span aria-hidden="true"></span>
+                    Progress saved locally
+                </span>
+                <a class="back-link" href="/">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6M9 12h11"></path></svg>
+                    Portfolio
+                </a>
+                <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle>
+                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+                    </svg>
+                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5Z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="lab-intro" data-setup aria-labelledby="lab-title">
+            <div class="lab-intro__glow" aria-hidden="true"></div>
+            <div class="shell">
+                <div class="intro-copy">
+                    <p class="eyebrow"><span></span> Fictional training environment</p>
+                    <h1 id="lab-title">Practise the decisions behind a <em>retail service desk.</em></h1>
+                    <p>Work through realistic tickets, ask the right questions, choose safe troubleshooting steps, document your work, and learn when to resolve or escalate.</p>
+                </div>
+
+                <div class="setup-grid">
+                    <section class="mode-selector" aria-labelledby="mode-title">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="section-kicker">Choose your session</p>
+                                <h2 id="mode-title">How do you want to practise?</h2>
+                            </div>
+                            <span class="scenario-count">6 scenarios</span>
+                        </div>
+
+                        <div class="mode-options" role="group" aria-label="Training mode">
+                            <button class="mode-card is-selected" type="button" data-mode="guided" aria-pressed="true">
+                                <span class="mode-card__icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM9.1 9a3 3 0 1 1 5.4 1.8c-1.3 1-2.5 1.6-2.5 3.2M12 18h.01"></path></svg>
+                                </span>
+                                <span>
+                                    <strong>Guided</strong>
+                                    <small>Hints and coaching while you work</small>
+                                </span>
+                                <span class="mode-card__level">Beginner</span>
+                            </button>
+
+                            <button class="mode-card" type="button" data-mode="practice" aria-pressed="false">
+                                <span class="mode-card__icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                </span>
+                                <span>
+                                    <strong>Practice</strong>
+                                    <small>Complete tickets without hints</small>
+                                </span>
+                                <span class="mode-card__level">Independent</span>
+                            </button>
+
+                            <button class="mode-card" type="button" data-mode="shift" aria-pressed="false">
+                                <span class="mode-card__icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2M4 4l2 2M20 4l-2 2"></path></svg>
+                                </span>
+                                <span>
+                                    <strong>Shift simulation</strong>
+                                    <small>Five mixed tickets in one session</small>
+                                </span>
+                                <span class="mode-card__level">Challenge</span>
+                            </button>
+                        </div>
+
+                        <button class="primary-button start-button" type="button" data-start>
+                            Start guided practice
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6"></path></svg>
+                        </button>
+                    </section>
+
+                    <aside class="workflow-preview" aria-labelledby="workflow-title">
+                        <p class="section-kicker">Your workflow</p>
+                        <h2 id="workflow-title">One ticket. Four decisions.</h2>
+                        <ol class="workflow-steps">
+                            <li><span>01</span><div><strong>Triage</strong><small>Understand scope and priority</small></div></li>
+                            <li><span>02</span><div><strong>Investigate</strong><small>Choose useful diagnostic checks</small></div></li>
+                            <li><span>03</span><div><strong>Decide</strong><small>Resolve, hold, or escalate</small></div></li>
+                            <li><span>04</span><div><strong>Document</strong><small>Leave clear, useful notes</small></div></li>
+                        </ol>
+                        <div class="workflow-preview__note">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM12 16v-4M12 8h.01"></path></svg>
+                            <p>All people, stores, tools and ticket details in this lab are fictional.</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="simulator-section" data-simulator hidden aria-labelledby="simulator-title">
+            <div class="shell simulator-shell">
+                <header class="session-bar">
+                    <div>
+                        <p class="section-kicker">Active session</p>
+                        <h2 id="simulator-title"><span data-mode-label>Guided practice</span></h2>
+                    </div>
+                    <div class="session-bar__stats">
+                        <div><small>Completed</small><strong data-completed-count>0/6</strong></div>
+                        <div><small>Best average</small><strong data-best-average>—</strong></div>
+                        <div data-timer-wrap hidden><small>Shift time</small><strong data-shift-timer>00:00</strong></div>
+                        <button class="quiet-button" type="button" data-change-mode>Change mode</button>
+                    </div>
+                </header>
+
+                <div class="simulator-grid">
+                    <aside class="queue-panel" aria-labelledby="queue-title">
+                        <div class="queue-panel__header">
+                            <div>
+                                <p class="section-kicker">Ticket queue</p>
+                                <h3 id="queue-title">Training tickets</h3>
+                            </div>
+                            <span class="queue-badge" data-open-count>6 open</span>
+                        </div>
+
+                        <nav class="ticket-list" data-ticket-list aria-label="Training ticket queue"></nav>
+
+                        <div class="queue-legend" role="group" aria-label="Priority guide">
+                            <p><span class="priority-dot priority-dot--p1"></span><strong>P1</strong> Critical trading impact</p>
+                            <p><span class="priority-dot priority-dot--p2"></span><strong>P2</strong> High business impact</p>
+                            <p><span class="priority-dot priority-dot--p3"></span><strong>P3</strong> Limited impact</p>
+                            <p><span class="priority-dot priority-dot--p4"></span><strong>P4</strong> Request or how-to</p>
+                        </div>
+
+                        <button class="text-button" type="button" data-reset-progress>Reset practice progress</button>
+                    </aside>
+
+                    <article class="ticket-workspace" data-workspace aria-live="polite">
+                        <header class="ticket-header">
+                            <div class="ticket-header__meta">
+                                <span class="ticket-id" data-ticket-id>RSD-101</span>
+                                <span class="channel-pill" data-channel>Phone</span>
+                                <span class="ticket-status" data-ticket-status>In progress</span>
+                            </div>
+                            <div class="ticket-header__title">
+                                <div>
+                                    <p data-store>Fictional Store 184</p>
+                                    <h3 data-ticket-title>Front POS terminal cannot connect</h3>
+                                </div>
+                                <div class="sla-card">
+                                    <small>Target response</small>
+                                    <strong data-sla>30 min</strong>
+                                </div>
+                            </div>
+                        </header>
+
+                        <div class="caller-message">
+                            <div class="caller-avatar" aria-hidden="true">SM</div>
+                            <div>
+                                <p><strong data-caller>Store Manager</strong><span>Initial report</span></p>
+                                <blockquote data-initial-message>“Our front POS says it cannot connect, but the second register is still working.”</blockquote>
+                            </div>
+                        </div>
+
+                        <nav class="stage-tabs" aria-label="Ticket workflow stages">
+                            <button class="stage-tab is-active" type="button" data-stage-button="triage" aria-current="step"><span>1</span>Triage</button>
+                            <button class="stage-tab" type="button" data-stage-button="investigate" disabled><span>2</span>Investigate</button>
+                            <button class="stage-tab" type="button" data-stage-button="decide" disabled><span>3</span>Decide</button>
+                            <button class="stage-tab" type="button" data-stage-button="document" disabled><span>4</span>Document</button>
+                        </nav>
+
+                        <div class="stage-content" data-stage-content></div>
+                    </article>
+
+                    <aside class="coach-panel" aria-labelledby="coach-title">
+                        <div class="coach-panel__header">
+                            <span class="coach-avatar" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"></path></svg>
+                            </span>
+                            <div><p class="section-kicker">Training coach</p><h3 id="coach-title">Decision support</h3></div>
+                        </div>
+
+                        <div class="coach-hint" data-coach-hint>
+                            <small>Current hint</small>
+                            <p>Start by confirming how many devices and users are affected.</p>
+                        </div>
+
+                        <form class="kb-search" data-kb-search-form role="search">
+                            <label for="kb-search-input">Search knowledge base</label>
+                            <div>
+                                <input id="kb-search-input" type="search" placeholder="POS, network, access…" autocomplete="off" data-kb-search-input>
+                                <button type="submit" aria-label="Search knowledge base">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+                                </button>
+                            </div>
+                            <ul class="kb-results" data-kb-results hidden></ul>
+                        </form>
+
+                        <div class="kb-card">
+                            <div class="kb-card__label"><span>KB</span><small>Suggested article</small></div>
+                            <strong data-kb-title>Retail POS connectivity checks</strong>
+                            <p data-kb-summary>Use impact and scope to decide whether this is a device issue or a store outage.</p>
+                        </div>
+
+                        <div class="activity-log">
+                            <div class="activity-log__heading">
+                                <h4>Activity</h4>
+                                <span data-activity-count>0 actions</span>
+                            </div>
+                            <ol data-activity-log>
+                                <li class="activity-log__empty">Your decisions will appear here.</li>
+                            </ol>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="learning-section" aria-labelledby="learning-title">
+            <div class="shell learning-grid">
+                <div>
+                    <p class="section-kicker">What this lab develops</p>
+                    <h2 id="learning-title">Good support is more than finding a fix.</h2>
+                </div>
+                <ul>
+                    <li><span>01</span><strong>Impact thinking</strong><p>Separate one-device issues from store-wide or multi-store incidents.</p></li>
+                    <li><span>02</span><strong>Safe troubleshooting</strong><p>Choose proportionate checks without creating additional business risk.</p></li>
+                    <li><span>03</span><strong>Clear communication</strong><p>Give useful updates without promising outcomes you cannot control.</p></li>
+                    <li><span>04</span><strong>Useful documentation</strong><p>Leave enough context for the next analyst or escalation team.</p></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="lab-footer">
+        <div class="shell lab-footer__inner">
+            <div><span class="brand__mark" aria-hidden="true">BL</span><p><strong>Retail Service Desk Lab</strong><small>A fictional learning project by Bisesh Lamichhane</small></p></div>
+            <p>This simulator is for education only and does not represent any employer’s systems or procedures.</p>
+            <a href="/">Back to portfolio</a>
+        </div>
+    </footer>
+
+    <div class="feedback-overlay" data-feedback-overlay hidden>
+        <section class="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedback-title" tabindex="-1" data-feedback-modal>
+            <button class="modal-close" type="button" aria-label="Close feedback" data-close-feedback>×</button>
+            <div class="feedback-score" data-score-ring><strong data-final-score>0</strong><span>/100</span></div>
+            <p class="section-kicker">Ticket review</p>
+            <h2 id="feedback-title" data-feedback-title>Ticket completed</h2>
+            <p class="feedback-summary" data-feedback-summary></p>
+
+            <div class="score-breakdown" data-score-breakdown></div>
+
+            <div class="coach-review">
+                <div><h3>What went well</h3><ul data-strengths></ul></div>
+                <div><h3>Try next time</h3><ul data-improvements></ul></div>
+            </div>
+
+            <div class="ideal-note">
+                <small>Example of a clear work note</small>
+                <p data-ideal-note></p>
+            </div>
+
+            <div class="modal-actions">
+                <button class="quiet-button" type="button" data-retry-ticket>Retry ticket</button>
+                <button class="primary-button" type="button" data-next-ticket>Next ticket <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6"></path></svg></button>
+            </div>
+        </section>
+    </div>
+
+    <noscript>
+        <div class="noscript-message">This interactive simulator requires JavaScript to run.</div>
+    </noscript>
+</body>
+</html>
