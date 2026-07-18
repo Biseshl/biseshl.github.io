@@ -484,6 +484,7 @@ html[data-theme="light"] .theme-icon--moon {
 /* Hero */
 .hero {
     display: grid;
+    overflow: hidden;
     min-height: 48rem;
     align-items: center;
     padding-top: calc(var(--header-height) + 4.5rem);
