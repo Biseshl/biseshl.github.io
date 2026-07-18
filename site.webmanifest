@@ -1,0 +1,17 @@
+{
+  "name": "Bisesh Lamichhane - IT Support Portfolio",
+  "short_name": "Bisesh",
+  "description": "Service Desk Analyst and IT Support portfolio based in Melbourne, Australia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "icons": [
+    {
+      "src": "/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
