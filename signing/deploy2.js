@@ -97,3 +97,10 @@
   }
   tick(); window.setInterval(tick,1000);
 })();
+/* Load the optional Nepali-themed overlay refinements after the existing page initialises. */
+(() => {
+  const script = document.createElement('script');
+  script.src = './deploy3-nepali.js?v=20260919-ganesh-1';
+  script.async = false;
+  document.head.append(script);
+})();
