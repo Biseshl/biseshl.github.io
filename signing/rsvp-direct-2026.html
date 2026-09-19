@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6e2433"><meta name="robots" content="noindex">
+<title>RSVP | Bisesh & Debansi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css?v=rsvp-direct-2026">
+<style>
+.rsvp-direct-main{min-height:100vh;padding:140px 24px 90px;display:grid;place-items:center;background:linear-gradient(135deg,#fffaf6,#f9ebe8)}
+.rsvp-direct-grid{width:min(1050px,100%);display:grid;grid-template-columns:.76fr 1.24fr;gap:48px;align-items:center}
+.rsvp-intro h1{font-family:'Cormorant Garamond',serif;font-size:clamp(54px,6vw,80px);font-weight:500;line-height:.91;color:#4b1621;margin:16px 0}
+.rsvp-intro h1 em{font-family:'Allura',cursive;font-weight:400;color:#a85e69;font-style:normal}
+.rsvp-intro p{line-height:1.75;color:#756966;font-size:15px}
+.rsvp-mini-photo{width:180px;height:130px;object-fit:cover;object-position:center 64%;border-radius:18px;margin:24px 0;border:4px solid #fff;box-shadow:0 12px 30px #4b162122}
+.rsvp-direct-grid .form{grid-template-columns:1fr 1fr}
+.rsvp-direct-grid .form .btn:disabled{opacity:.6;cursor:wait;transform:none}
+.rsvp-direct-grid .status{min-height:2.8em}
+.nav .nav-inner{max-width:1050px}
+@media(max-width:780px){.rsvp-direct-grid{grid-template-columns:1fr;gap:25px}.rsvp-direct-main{padding-top:105px}.rsvp-mini-photo{display:none}.rsvp-direct-grid .form{padding:22px}}
+@media(max-width:480px){.rsvp-direct-grid .form{grid-template-columns:1fr}.rsvp-direct-grid .form label{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a class="brand" href="./">B & D</a><a class="pill" href="./" style="font-size:11px;letter-spacing:.1em">← Invitation</a></div></nav>
+<main class="rsvp-direct-main"><div class="rsvp-direct-grid">
+<div class="rsvp-intro"><p class="kicker">24 SEPTEMBER 2026 · TARNEIT</p><h1>We'd love<br><em>to see you.</em></h1><p>Confirm your attendance for Bisesh & Debansi's signing day. Your reply goes straight to our private guest list — no email or share window.</p><img class="rsvp-mini-photo" src="./assets/ocean-hq.jpg" alt="Bisesh and Debansi by the ocean"><p style="font-family:'Allura',cursive;font-size:33px;color:#a85e69">With love, Bisesh & Debansi ♡</p></div>
+<form id="directRsvpForm" class="form" method="post" action="https://script.google.com/macros/s/AKfycbxORudVhtZl5LUpTDf8tfaVWN_OLsJoOPfssKaO03JLMMZBtgry0iHrAn5uU_BzK6eB2A/exec">
+<label class="full">Your name(s)<input name="name" id="guestName" required maxlength="150" autocomplete="name" placeholder="e.g. John & Jane"></label>
+<label>Will you be attending?<select id="attendance" name="attendance" required><option value="Yes, we'll be there!">Yes, we'll be there!</option><option value="Sorry, we can't make it">Sorry, we can't make it</option></select></label>
+<label>Number of guests<select id="guests" name="guests" required><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></label>
+<label class="full">A message for us (optional)<textarea id="message" name="message" maxlength="1000" placeholder="Leave us a little note..."></textarea></label>
+<button class="btn primary full" id="sendRsvp" type="submit">Send RSVP ♡</button>
+<p class="status full" id="rsvpStatus" role="status" aria-live="polite"></p>
+</form></div></main>
+<footer><h2>Bisesh <em>&</em> Debansi</h2><p>24 SEPTEMBER 2026</p><span>Same people, new chapter. ♡</span></footer>
+<script>
+(() => {
+  'use strict';
+  const form = document.getElementById('directRsvpForm');
+  const button = document.getElementById('sendRsvp');
+  const status = document.getElementById('rsvpStatus');
+  let busy = false;
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if (busy || !form.reportValidity()) return;
+    const data = new URLSearchParams(new FormData(form));
+    const name = (data.get('name') || '').trim();
+    const attendance = data.get('attendance');
+    const guests = data.get('guests');
+    const message = (data.get('message') || '').trim();
+    if (!name || name.length > 150 || message.length > 1000 || !["Yes, we'll be there!", "Sorry, we can't make it"].includes(attendance) || !/^[1-5]$/.test(guests)) {
+      status.textContent = 'Please check your RSVP details.';
+      return;
+    }
+    data.set('name',name); data.set('message',message);
+    busy = true; button.disabled = true; button.textContent = 'Sending RSVP…';
+    status.textContent = 'Sending your RSVP to our guest list…';
+    try {
+      // Apps Script ContentService cannot return a readable cross-origin response.
+      // A resolved no-cors request is not proof of a saved spreadsheet row.
+      await fetch(form.action, {method:'POST',mode:'no-cors',body:data,redirect:'follow',cache:'no-store'});
+      status.textContent = 'Your RSVP was sent for processing ♡ We will check our guest list for your response.';
+      button.textContent = 'RSVP sent ♡';
+      form.reset();
+    } catch (error) {
+      status.textContent = 'We could not send your RSVP. Please check your connection and try again.';
+      button.textContent = 'Try again ♡';
+    } finally { busy = false; button.disabled = false; }
+  }, true);
+})();
+</script>
+</body>
+</html>
