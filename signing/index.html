@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="./wedding-redesign.css?v=20260919-nepali-1">
+  <link rel="stylesheet" href="./wedding-fixes.css?v=20260919-nav-map-1">
 </head>
 <body>
   <nav class="nav" aria-label="Main navigation">
@@ -19,7 +20,7 @@
       <div class="nav-side nav-left"><a href="#story">Our story</a><a href="#details">Details</a><a href="#gallery">Gallery</a></div>
       <a class="nav-brand" href="#home" aria-label="Bisesh and Debansi — back to top"><strong>B &amp; D</strong><small>TWO HEARTS · ONE JOURNEY</small></a>
       <div class="nav-side nav-right"><a href="#venue">Venue</a><a class="nav-rsvp" href="./rsvp-direct-2026.html">RSVP ↗</a></div>
-      <button class="menu" id="menu" type="button" aria-label="Open navigation menu" aria-controls="links">☰</button>
+      <button class="menu" id="menu" type="button" aria-label="Open navigation menu" aria-controls="links" aria-expanded="false">☰</button>
       <div class="nav-side nav-mobile" id="links"><a href="#story">Our story</a><a href="#details">Details</a><a href="#gallery">Gallery</a><a href="#venue">Venue</a><a class="nav-rsvp" href="./rsvp-direct-2026.html">RSVP ↗</a></div>
     </div>
   </nav>
@@ -62,7 +63,7 @@
         <div class="detail-item reveal"><span class="detail-icon" aria-hidden="true">▦</span><b>The date</b><strong>24 September 2026</strong><p>Thursday</p></div>
         <div class="detail-item reveal"><span class="detail-icon" aria-hidden="true">◷</span><b>The time</b><strong>4:00 PM onwards</strong><p>Signing around 5:00 PM</p></div>
         <div class="detail-item reveal"><span class="detail-icon" aria-hidden="true">♡</span><b>The gathering</b><strong>Close &amp; intimate</strong><p>Our family and closest friends</p></div>
-        <div class="detail-item reveal"><span class="detail-icon" aria-hidden="true">⌂</span><b>The venue</b><strong>Our residence</strong><p>Tarneit, Victoria</p></div>
+        <div class="detail-item reveal"><span class="detail-icon" aria-hidden="true">⌂</span><b>The venue</b><strong>Our residence</strong><p>26 Cadell Ave, Tarneit VIC</p></div>
       </div>
       <div class="tiny-timeline"><span>4:00 · Welcome</span><span>5:00 · Signing</span><span>5:30 · Photos</span><span>6:00 · Food &amp; company</span></div>
     </section>
@@ -78,7 +79,18 @@
       <p class="gallery-caption">These are the days we never want to forget. ♡</p>
     </section>
     <section class="countdown" aria-labelledby="countdown-title"><p class="eyebrow">A HISTORIC MOMENT · OUR NEXT CHAPTER</p><h2 id="countdown-title">Counting down to <span class="script">our forever</span></h2><div class="clock" aria-label="Countdown to our signing day"><div><b id="days">00</b><span>Days</span></div><div><b id="hours">00</b><span>Hours</span></div><div><b id="minutes">00</b><span>Minutes</span></div><div><b id="seconds">00</b><span>Seconds</span></div></div><p class="countdown-line">Same souls, a new milestone. ♡</p></section>
-    <section class="venue pattern" id="venue" aria-labelledby="venue-title"><div class="venue-inner reveal"><p class="eyebrow">WHERE TO FIND US</p><h2 id="venue-title">An intimate celebration, <em>at home.</em></h2><div class="gold-rule" aria-hidden="true"><span>✺</span></div><p>Our residence · Tarneit, Victoria</p><p>We’ll share the exact address privately with our confirmed guests.</p><a class="btn outline" href="https://www.google.com/maps/search/?api=1&amp;query=Tarneit%20VIC" target="_blank" rel="noopener noreferrer">Find Tarneit ↗</a></div></section>
+    <section class="venue pattern" id="venue" aria-labelledby="venue-title">
+      <div class="venue-inner reveal">
+        <p class="eyebrow">WHERE TO FIND US</p>
+        <h2 id="venue-title">An intimate celebration, <em>at home.</em></h2>
+        <div class="gold-rule" aria-hidden="true"><span>✺</span></div>
+        <p>Our residence · Tarneit, Victoria</p>
+        <p class="venue-address">26 Cadell Ave, Tarneit VIC</p>
+        <p>We look forward to welcoming you to our home for our signing day.</p>
+        <a class="btn outline venue-directions" href="https://www.google.com/maps/search/?api=1&amp;query=26%20Cadell%20Ave%2C%20Tarneit%2C%20VIC%2C%20Australia" target="_blank" rel="noopener noreferrer">Get directions ↗</a>
+        <div class="venue-map"><iframe title="Google Map showing 26 Cadell Ave, Tarneit VIC" src="https://www.google.com/maps?q=26%20Cadell%20Ave%2C%20Tarneit%2C%20VIC%2C%20Australia&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      </div>
+    </section>
     <section class="invite-rsvp pattern" id="rsvp" aria-labelledby="rsvp-title"><div class="invite-rsvp-inner"><div class="reveal"><p class="eyebrow">BE PART OF OUR STORY</p><h2 id="rsvp-title">Will you be there?</h2><p>We’d love to celebrate this special day with you.<br>Kindly let us know if you’ll be joining our signing day.</p><p class="script">Good people make beautiful days ♡</p></div><a class="btn primary" href="./rsvp-direct-2026.html">RSVP now →</a></div></section>
   </main>
   <footer><strong>Bisesh &amp; Debansi</strong><p>24 SEPTEMBER 2026 · A SMALL STEP, A BIG FOREVER</p><span class="footer-script">Love · Family · Friends · Always ♡</span></footer>
