@@ -1,0 +1,18 @@
+/* Invitation refinements: show one navigation menu per viewport. */
+.nav .nav-mobile { display: none !important; }
+@media (max-width: 850px) {
+  .nav .nav-left, .nav .nav-right { display: none !important; }
+  .nav .menu { display: inline-flex !important; align-items: center; justify-content: center; margin-left: auto; }
+  .nav .nav-inner { position: relative; display: flex; align-items: center; justify-content: center; padding: 0 18px; }
+  .nav .nav-brand { position: absolute; left: 50%; transform: translateX(-50%); }
+  .nav .menu { position: relative; z-index: 2; }
+  .nav .nav-mobile.open { display: flex !important; position: absolute; top: 100%; left: 14px; right: 14px; flex-direction: column; align-items: stretch; gap: 3px; padding: 14px; background: #430e1a; border: 1px solid #c79a5370; border-radius: 0 0 16px 16px; box-shadow: 0 16px 32px #23060f40; }
+  .nav .nav-mobile.open a { display: block; padding: 12px 14px; text-align: center; white-space: normal; }
+}
+/* Inline map for the home celebration. */
+.venue .venue-inner { max-width: 1020px; }
+.venue .venue-address { color: #430e1a; font: 600 clamp(20px, 3vw, 28px)/1.4 'Cormorant Garamond', serif; margin: 18px auto 8px; }
+.venue .venue-map { margin: 30px auto 0; width: 100%; max-width: 960px; height: clamp(300px, 42vw, 440px); overflow: hidden; border-radius: 18px; border: 1px solid #c79a5380; background: #eee2d1; box-shadow: 0 18px 45px #430e1a20; }
+.venue .venue-map iframe { display: block; width: 100%; height: 100%; border: 0; }
+.venue .venue-directions { margin-top: 20px; }
+@media (max-width: 600px) { .venue .venue-map { margin-top: 22px; height: 320px; border-radius: 12px; } }
