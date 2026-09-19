@@ -1,3 +1,4 @@
+@import url('./invitation-opening-2026.css?v=card-open-1');
 /* Invitation refinements: show one navigation menu per viewport. */
 .nav .nav-mobile { display: none !important; }
 @media (max-width: 1050px) {
