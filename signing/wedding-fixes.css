@@ -1,6 +1,6 @@
 /* Invitation refinements: show one navigation menu per viewport. */
 .nav .nav-mobile { display: none !important; }
-@media (max-width: 850px) {
+@media (max-width: 1050px) {
   .nav .nav-left, .nav .nav-right { display: none !important; }
   .nav .menu { display: inline-flex !important; align-items: center; justify-content: center; margin-left: auto; }
   .nav .nav-inner { position: relative; display: flex; align-items: center; justify-content: center; padding: 0 18px; }
